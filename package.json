@@ -1,0 +1,36 @@
+{
+	"name": "template",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"type": "module",
+	"license": "AGPL-version-3.0",
+	"private": false,
+	"engines": {
+		"node": ">= 14.0.0",
+		"npm": ">= 6.0.0"
+	},
+	"homepage": "",
+	"repository": {
+		"type": "git",
+		"url": ""
+	},
+	"bugs": "",
+	"keywords": [],
+	"author": {
+		"name": "Meek Msaki",
+		"email": "meek10x@gmail.com",
+		"url": "https://github.com/mmsaki"
+	},
+	"contributors": [],
+	"scripts": {
+		"dev": "",
+		"test": "jest",
+		"test:watch": "pnpm test -- --watchAll"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.22.5",
+		"@babel/preset-env": "^7.22.5",
+		"babel-jest": "^29.5.0"
+	}
+}
