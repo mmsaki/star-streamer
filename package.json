@@ -27,12 +27,12 @@
 		"dev": "",
 		"test": "jest",
 		"test:watch": "pnpm test -- --watchAll",
-		"basic-stream": "node src/basic-stream.js video.mp4",
-		"helia-stream": "node src/helia-stream.js",
-		"external-stream": "node src/external-stream.js",
-		"hypercore-convert": "node hypercore-stream.js import ../bigbuck.mp4",
-		"hypercore-replicate": "node hypercore-stream.js",
-		"hypercore-peer": "node hypercore-stream.js"
+		"stream:base": "node src/basic-stream.js bigbuck.mp4",
+		"stream:helia": "node src/helia-stream.js",
+		"stream:cid": "node src/external-stream.js",
+		"hypercore:convert": "node src/hypercore-stream.js import bigbuck.mp4",
+		"hypercore": "node src/hypercore-stream.js",
+		"hypercore:peer": "node src/hypercore-stream.js"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.22.5",
