@@ -3,6 +3,9 @@ import Hypercore from 'hypercore';
 import Hyperswarm from 'hyperswarm';
 import fs from 'fs';
 import rangeParser from 'range-parser';
+import { JSDOM } from 'jsdom';
+
+let serverLink;
 
 const key =
 	process.argv[2] && process.argv[2] !== 'import'
@@ -78,10 +81,11 @@ async function start() {
 			const bs = core.createByteStream({ byteOffset, byteLength });
 			bs.pipe(res, noop);
 		})
-		.listen(5500, function () {
-			console.log(
-				`http server  on http://localhost:${5500} ${this.address().port}`
-			);
+		.listen(function () {
+			const host = `http://localhost:${this.address().port}`;
+			//  TODO:
+			// document.getElementById('source').src = host;
+			console.log(`http server on ${host}`);
 		});
 }
 
