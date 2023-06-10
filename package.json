@@ -27,8 +27,9 @@
 		"dev": "",
 		"test": "jest",
 		"test:watch": "pnpm test -- --watchAll",
-		"local-stream": "node src/local-stream.js",
-		"cid-stream": "node src/external-stream.js"
+		"basic-stream": "node src/basic-stream.js video.mp4",
+		"helia-stream": "node src/helia-stream.js",
+		"external-stream": "node src/external-stream.js"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.22.5",
@@ -44,6 +45,7 @@
 		"helia": "^1.3.1",
 		"libp2p": "^0.45.5",
 		"multiaddr": "^10.0.1",
-		"multiformats": "^11.0.2"
+		"multiformats": "^11.0.2",
+		"through2": "^4.0.2"
 	}
 }
