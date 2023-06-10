@@ -8,7 +8,6 @@
 			body {
 				margin: 40px auto;
 				max-width: 650px;
-				/* background-color: hotpink; */
 				font-family: "Courier New", Courier, monospace;
 			}
 			video {
@@ -19,9 +18,10 @@
 	</head>
 	<body>
     <h1 class="Title" style="color: #29293e">Star Streamer</h1>
-		<video id="videoplayer" width="650" controls muted="muted" autoplay>
-			<source src="/video" type="video/mp4" />
+		<video id="videoplayer" width="650" controls autoplay>
+			<source src="http://localhost:5500" type="video/mp4" />
 		</video>
 		</div>
+		<script src="https://unpkg.com/@helia/unixfs/dist/index.min.js"></script>
 	</body>
 </html>

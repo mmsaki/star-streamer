@@ -4,8 +4,8 @@ import { createHelia } from 'helia';
 
 const helia = await createHelia();
 const hfs = unixfs(helia);
-const videoStream = fs.createReadStream('./video.mp4');
-const cid = await hfs.addByteStream(videoStream, helia.blockstore);
+const videoStream = fs.createReadStream('./bigbuck.mp4');
+const cid = await hfs.addByteStream(videoStream, { rawLeaves: true });
 
 const myPeerNode = helia.libp2p.peerId;
 console.log('My PeerId: ', myPeerNode);

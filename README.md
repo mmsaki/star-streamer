@@ -25,3 +25,23 @@ Run
 ```zsh
 pnpm test
 ```
+
+## Streaming with hypercore
+
+1. Convert video into a core
+
+   ```zsh
+   pnpm run hypercore-convert
+   ```
+
+1. Replicate so other peers can also watch it
+
+   ```zsh
+   pnpm run hypercore-replicate
+   ```
+
+1. Other peers can join with the core key
+
+   ```zsh
+   pnpm run hypercore-peer ec429308a714b51a79b583627cc705e6eaf5f6f681a3b7158138ca315dbaea46
+   ```
