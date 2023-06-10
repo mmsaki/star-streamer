@@ -4,12 +4,10 @@ import { createHelia } from 'helia';
 
 const helia = await createHelia();
 const hfs = unixfs(helia);
-const videoStream = fs.createReadStream('./video.mov');
+const videoStream = fs.createReadStream('./video.mp4');
 const cid = await hfs.addByteStream(videoStream);
 
 console.log('Video CID', cid);
-
-let video = null;
 
 for await (const chunk of hfs.cat(cid, {
 	onProgress: (e) => {
@@ -17,11 +15,3 @@ for await (const chunk of hfs.cat(cid, {
 	},
 })) {
 }
-
-videoStream.once('end', function () {
-	console.log('END');
-});
-
-videoStream.on('finish', function () {
-	console.log('FINISHED');
-});
