@@ -3,9 +3,6 @@ import Hypercore from 'hypercore';
 import Hyperswarm from 'hyperswarm';
 import fs from 'fs';
 import rangeParser from 'range-parser';
-import { JSDOM } from 'jsdom';
-
-let serverLink;
 
 const key =
 	process.argv[2] && process.argv[2] !== 'import'

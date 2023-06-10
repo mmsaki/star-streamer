@@ -45,3 +45,5 @@ pnpm test
    ```zsh
    pnpm run hypercore:peer ec429308a714b51a79b583627cc705e6eaf5f6f681a3b7158138ca315dbaea46
    ```
+
+   <img width="1206" alt="screenshot" src="https://github.com/mmsaki/star-streamer/assets/98189596/45472ce2-c5c5-464e-8143-f85e36ecd5cb">
