@@ -5,13 +5,24 @@ import { createHelia } from 'helia';
 const helia = await createHelia();
 const hfs = unixfs(helia);
 const videoStream = fs.createReadStream('./video.mp4');
-const cid = await hfs.addByteStream(videoStream);
+const cid = await hfs.addByteStream(videoStream, helia.blockstore);
 
-console.log('Video CID', cid);
+const myPeerNode = helia.libp2p.peerId;
+console.log('My PeerId: ', myPeerNode);
+console.log('Video CID: ', cid);
 
 for await (const chunk of hfs.cat(cid, {
 	onProgress: (e) => {
-		console.log('cat event', e.type, e.detail);
+		if (e.type === 'unixfs:exporter:walk:file') {
+			console.log('File', e.detail.cid);
+			// TODO: Decode e.detail.cid to --raw-leaves
+			// console.log(hfs.cat(e.detail.cid));
+		}
+		if (e.type === 'unixfs:exporter:progress:unixfs:file') {
+			console.log('bytesRead:', e.detail.bytesRead);
+		}
 	},
 })) {
 }
+
+process.exit(0);
