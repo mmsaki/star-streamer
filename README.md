@@ -47,3 +47,30 @@ pnpm test
    ```
 
    <img width="1206" alt="screenshot" src="https://github.com/mmsaki/star-streamer/assets/98189596/45472ce2-c5c5-464e-8143-f85e36ecd5cb">
+
+## Adding movies to ipfs
+
+1. Create a `movie/` direcory and add `movie.mp4` and `thumbnail.png` or `.jpg`
+
+   ```zsh
+   mkdir movie
+   ```
+
+1. Add and pin movie to ipfs
+
+   ```zsh
+   ipfs add -r ./movie/
+
+   # then
+   ipfs pin add QmPzE1...
+   ```
+
+   > Next, You can run `ipfs ls QmPzE1rSLhhVvdfyAZkjAuf8KSCxtKbepPZJ99weKFcZHP` to see the contents of your movies e.g
+
+   ```zsh
+   QmVzmsRo6avD1HeBWY3WTUGdqvhya4KK999k77nFZS7i2S 63614462 bigbuck.mp4
+   QmcgoEmVE3iSbqGS1Pr5Ad5jASMyGFBLA5wfHKKtb1vSRa 582477   thumbnail.png
+
+   ```
+
+1. You ca
