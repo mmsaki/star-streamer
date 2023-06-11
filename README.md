@@ -26,7 +26,7 @@ Run
 pnpm test
 ```
 
-## Streaming with hypercore
+## Peer Streaming with hypercore
 
 1. Convert video into a core
 
@@ -73,4 +73,4 @@ pnpm test
 
    ```
 
-1. You ca
+1. Next, let's can try stream movies ipfs

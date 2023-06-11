@@ -28,7 +28,7 @@
 		"test": "jest",
 		"test:watch": "pnpm test -- --watchAll",
 		"stream:base": "node src/basic-stream.js movie/bigbuck.mp4",
-		"stream:helia": "node src/helia-stream.js",
+		"stream:helia": "node src/helia-stream.js movie/bigbuck.mp4",
 		"stream:cid": "node src/external-stream.js",
 		"hypercore:convert": "node src/hypercore-stream.js import movie/bigbuck.mp4",
 		"hypercore": "node src/hypercore-stream.js",
