@@ -8,7 +8,7 @@ const key =
 	process.argv[2] && process.argv[2] !== 'import'
 		? Buffer.from(process.argv[2], 'hex')
 		: null;
-const core = new Hypercore('../movie' + (key ? '-peer' : ''), key);
+const core = new Hypercore('../tmp/movie' + (key ? '-peer' : ''), key);
 
 if (process.argv[2] === 'import') {
 	importData(process.argv[3]);
