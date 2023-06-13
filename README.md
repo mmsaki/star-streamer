@@ -1,4 +1,4 @@
-# node template
+# ipfs streaming
 
 1. Test streaming with 'node:fs'
 
