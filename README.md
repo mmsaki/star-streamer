@@ -74,3 +74,22 @@ pnpm test
    ```
 
 1. Next, let's can try stream movies ipfs
+
+## Ipfs Implentation
+
+1. [IPFS Live Streaming by Yurko,Elon, Benedict and Toronto Mesh](https://github.com/tomeshnet/ipfs-live-streaming) - Feed video file into the IPFS and distribute content hash
+   1. OBS Studio
+   1. OpenVPN
+   1. Digital Ocean (Host HLS playlist over HTTP)
+   1. NGINX with RTMP module (Video source from RTMP server)
+   1. FFmpeg (create an HLS stream of chunks)
+   1. IPFS (Add to IPFS) - Publish hash to rewrite m3u8 playlist file to IPNS ()
+   1. Video.js
+   1. Terraform
+
+**Additional implementation**
+
+> You can use FFMpeg to encode Video Stream into chunks and advertise to a gossip network. Possibly this is how scale the video streaming? - DougAnderson444#7580
+
+1. Chunk video into mu8 playlist
+1. To adveritise video chunks to a gossip channel using a gossip protocol, like pubsub
