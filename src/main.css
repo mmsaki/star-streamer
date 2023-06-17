@@ -23,15 +23,20 @@ body {
 }
 
 video {
-	border: 1px solid black;
+	border: 1px solid var(--black);
 	background-color: black;
+	width: 90vw;
+}
+.video {
+	width: 100vw;
+	z-index: 2;
 }
 
 .peer-logs {
 	text-align: left;
 	background: var(--white);
 	height: 150px;
-	min-width: 700px;
+	width: 90vw;
 	overflow: scroll;
 	border: 2px solid var(--black);
 	padding: 4px;
@@ -185,6 +190,10 @@ section {
 		letter-spacing: 0px;
 	}
 
+	video {
+		width: 90vw;
+	}
+
 	/*- nav -*/
 	.navWrapper ul li a {
 		margin-left: 2.5vw;
@@ -200,6 +209,10 @@ section {
 		width: 15vw;
 	}
 
+	.peer-logs {
+		width: 90vw;
+	}
+
 	#shape5 {
 		width: 15vw;
 	}
@@ -209,6 +222,15 @@ section {
 	.container {
 		padding-left: 5vw;
 		padding-right: 5vw;
+	}
+	.peer-logs {
+		padding-left: 4px;
+		padding-right: 4px;
+		width: 90vw;
+	}
+
+	video {
+		width: 90vw;
 	}
 
 	.Vcontainer {
@@ -367,6 +389,10 @@ section {
 @media (max-width: 670px) {
 	.wavy-border {
 		margin-top: -20px;
+	}
+
+	video {
+		width: 90vw;
 	}
 
 	.Vcontainer {

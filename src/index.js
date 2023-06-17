@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 			bootstrap({
 				list: [
 					'/ip4/127.0.0.1/udp/9090/webrtc-direct/certhash/uEiCnjFGSpzulEU2hkjieznLvNv-rNDNSaEGsueQKY9SsdQ/p2p/12D3KooWGMvHEupxeBbq2q1cutM6JR9FKB2nQtSwqUYkZrYgHKKR',
+					'/ip4/127.0.0.1/udp/9090/webrtc-direct/certhash/uEiD38JeBzR-uv2Q6zMln6kRRGlAFFLPNCNTkxAdWr0fVwA/p2p/12D3KooWN1dAxwTevXLPQ8Gsoyje6eajQKzA4Kq3hDPeuBgo5nFE',
 				],
 			}),
 		],
