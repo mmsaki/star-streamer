@@ -1,0 +1,88 @@
+.faq {
+	background: #f9ffa9;
+	position: relative;
+	overflow: hidden;
+}
+
+.faq .faq_inner {
+	position: relative;
+	width: 100%;
+	background: var(--white);
+	border: 2px solid var(--black);
+	padding: 2.6vw;
+	border-radius: 60px;
+	z-index: 1;
+}
+
+.faq .faq_inner h1 {
+	text-align: center;
+}
+
+.faq .faq_inner > div .question {
+	margin-top: 1.56vw;
+	background: #ecef66;
+	border: 2px solid var(--black);
+	border-radius: 30px;
+	padding: 2.08vw 1.56vw;
+}
+
+/* shapes */
+#shape14 {
+	width: 6.5vw;
+	top: 12vw;
+	left: 9vw;
+}
+
+#shape15 {
+	width: 7.8vw;
+	top: 25vw;
+	left: 2.5vw;
+}
+
+#shape16 {
+	width: 7.8vw;
+	top: 38vw;
+	left: 6.5vw;
+}
+
+#shape17 {
+	width: 17vw;
+	top: 55vw;
+	left: 5vw;
+}
+
+#shape18 {
+	width: 8vw;
+	top: 65vw;
+	left: 2.7vw;
+}
+
+#shape19 {
+	width: 10vw;
+	top: 80vw;
+	left: 0;
+}
+
+#shape20 {
+	width: 5.2vw;
+	top: 88vw;
+	left: 9vw;
+}
+
+#shape21 {
+	width: 17vw;
+	top: 22vw;
+	right: 2vw;
+}
+
+#shape22 {
+	width: 10vw;
+	top: 40vw;
+	right: 1vw;
+}
+
+#shape23 {
+	width: 10.4vw;
+	top: 70vw;
+	right: 6vw;
+}

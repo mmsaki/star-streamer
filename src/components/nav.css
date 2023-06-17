@@ -1,0 +1,81 @@
+/*========= Navbar =========*/
+
+.navbar {
+    width: 100%;
+    padding: 0 13vw;
+    position: fixed;
+    top: 3.1vw;
+    z-index: 10;
+}
+
+.navWrapper {
+    padding: 1vw 2.60vw;
+    background: var(--white);
+    border: 2px solid var(--black);
+    border-radius: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navWrapper .logo a {
+    font-size: 32px;
+    font-weight: bold;
+    color: var(--black);
+    letter-spacing: -1px;
+}
+
+.navWrapper ul {
+    display: flex;
+    align-items: center;
+    display: contents;
+}
+
+.navWrapper ul li a {
+    margin-left: 2.08vw;
+    font-size: 1.04vw;
+    color: var(--black);
+    transition: all .3s ease;
+}
+
+.navWrapper ul li a:hover {
+    opacity: .8;
+}
+
+/*--------- Responsive nav ----------*/
+
+.hamburger {
+    display: none;
+}
+
+.overlay {
+    position: fixed;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 45%;
+    background: #ECCCE9;
+    z-index: 2;
+    border-bottom: 2px solid var(--black);
+}
+
+.overlay-content {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.overlay .overlay-content ul li a {
+    padding: 10px 0;
+    font-size: 24px;
+    color: var(--black);
+    display: block;
+}
+
+.RNB {
+    margin-bottom: 50px;
+}

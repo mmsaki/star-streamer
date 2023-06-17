@@ -1,0 +1,20 @@
+.footer {
+    background: var(--black);
+    color: var(--white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 5vw;
+    padding-bottom: 5vw;
+}
+
+.footer .flink a {
+    color: var(--white);
+    display: block;
+    position: relative;
+    transition: all .3s ease;
+}
+
+.footer .flink a:hover {
+    opacity: .7;
+}

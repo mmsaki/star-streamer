@@ -1,0 +1,11 @@
+.getintouch {
+    background: var(--white);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.getintouch>div {
+    width: 50%;
+}
