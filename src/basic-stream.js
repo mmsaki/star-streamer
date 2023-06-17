@@ -1,23 +1,31 @@
 import fs from 'fs';
-import { unixfs } from '@helia/unixfs';
-import { createHelia } from 'helia';
 import through from 'through2';
+import { finished } from 'stream/promises';
 
-const input = process.argv[2];
-
-let byteCount = 0;
+let input = process.argv[2];
 
 const videoStream = fs.createReadStream(input);
+let byteCount = 0;
 
-function write(buf, enc, next) {
-	console.log('current buffer', buf);
-	byteCount += buf.length;
-	next();
+export async function streamBytes() {
+	videoStream.pipe(through(count, end));
+	function count(buf, enc, next) {
+		console.log('current buffer', buf);
+		byteCount += buf.length;
+		next();
+	}
+
+	async function end(next) {
+		console.log('byte count', byteCount);
+		next();
+	}
+
+	await finished(videoStream);
+
+	console.log('Stream is done reading');
+	console.log('Total bytes streamed:', byteCount);
+	return byteCount;
 }
 
-function end(next) {
-	console.log('byte count', byteCount);
-	next();
-}
-
-videoStream.pipe(through(write, end));
+streamBytes().catch(console.error);
+videoStream.resume(); // drain the stream

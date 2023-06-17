@@ -1,4 +1,14 @@
-# ipfs streaming
+# Getting started
+
+```zsh
+pnpm run start
+```
+
+```zsh
+pnpm run rust-peer
+```
+
+## streaming
 
 1. Test streaming with 'node:fs'
 
@@ -75,7 +85,7 @@ pnpm test
 
 1. Next, let's can try stream movies ipfs
 
-## Ipfs Implentation
+## Possible Implentations
 
 1. [IPFS Live Streaming by Yurko,Elon, Benedict and Toronto Mesh](https://github.com/tomeshnet/ipfs-live-streaming) - Feed video file into the IPFS and distribute content hash
    1. OBS Studio
@@ -89,7 +99,29 @@ pnpm test
 
 **Additional implementation**
 
-> You can use FFMpeg to encode Video Stream into chunks and advertise to a gossip network. Possibly this is how scale the video streaming? - DougAnderson444#7580
+> You can use FFMpeg to encode Video Stream into chunks and advertise to a gossip network. Possibly an idea to scale the video streaming? - DougAnderson444#7580
 
 1. Chunk video into mu8 playlist
-1. To adveritise video chunks to a gossip channel using a gossip protocol, like pubsub
+1. To announce video chunks to a gossip channel via gossip protocol pubsub
+
+## MISC: Append only hyperswarm
+
+- [ ] Create car file
+- [ ] Adding swarm to have topics that other peers can join
+
+  ```zsh
+  pnpm run hyperswarm
+
+  # then other peers can join with, able to chat on terminal
+  pnpm run hyperswarm (topic)
+  ```
+
+- [ ] Append only persistent messages storage
+
+  ```zsh
+  pnpm run hypercore:writer
+  # then
+  pnpm run hypercore:reader
+
+  # writer can send messages to writer
+  ```

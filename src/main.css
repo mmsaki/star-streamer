@@ -1,0 +1,524 @@
+@import url(components/nav.css);
+@import url(components/hero.css);
+@import url(components/faq.css);
+@import url(components/getintouch.css);
+@import url(components/footer.css);
+
+:root {
+	--black: #161616;
+	--white: #fdfdfb;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html,
+body {
+	overflow-x: hidden;
+	font-family: NeuHaasM, sans-serif !important;
+	scroll-behavior: smooth;
+}
+
+video {
+	border: 1px solid black;
+	background-color: black;
+}
+
+.peer-logs {
+	text-align: left;
+	background: var(--white);
+	height: 150px;
+	min-width: 700px;
+	overflow: scroll;
+	border: 2px solid var(--black);
+	padding: 4px;
+}
+
+@font-face {
+	font-family: NeuHaasM, sans-serif !important;
+	src: url(../fonts/NeueHaasDisplayMediu.ttf);
+}
+
+a {
+	text-decoration: none;
+}
+
+ul {
+	list-style: none;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+section {
+	width: 100%;
+	overflow-x: hidden;
+	color: var(--black);
+}
+
+.container {
+	padding-left: 13vw;
+	padding-right: 13vw;
+}
+
+.Vcontainer {
+	padding-top: 9vw;
+	padding-bottom: 10vw;
+}
+
+.wavy-border {
+	margin-top: -40px;
+	width: 100%;
+	position: absolute;
+}
+
+.wavy-border img {
+	width: 100%;
+	height: 100%;
+}
+
+/*========= Margins =========*/
+
+.mL60 {
+	margin-left: 3.12vw;
+}
+
+.mT120 {
+	margin-top: 6.2vw;
+}
+
+.mT100 {
+	margin-top: 5.2vw;
+}
+
+.mT70 {
+	margin-top: 3.6vw;
+}
+
+.mT50 {
+	margin-top: 2.6vw;
+}
+
+.mT30 {
+	margin-top: 1.56vw;
+}
+
+.mT20 {
+	margin-top: 1.04vw;
+}
+
+.mT10 {
+	margin-top: 0.52vw;
+}
+
+/*========= buttons =========*/
+
+.btn {
+	font-size: 22px;
+	font-weight: bold;
+	background: var(--white);
+	color: var(--black);
+	border: 2px solid var(--black);
+	border-radius: 50px;
+	padding: 15px 30px;
+	box-shadow: 5px 5px var(--black);
+	width: fit-content;
+	transition: box-shadow 0.3s ease;
+}
+
+.btn:hover {
+	box-shadow: none;
+}
+
+/*========= fonts =========*/
+
+.font96 {
+	font-size: 5vw;
+	line-height: 5.5vw;
+	letter-spacing: -3px;
+	font-weight: bold;
+}
+
+.font72 {
+	font-size: 3.75vw;
+	font-weight: bold;
+	letter-spacing: -2.5px;
+}
+
+.font64 {
+	font-size: 3.3vw;
+	font-weight: bold;
+	letter-spacing: -2px;
+}
+
+.font48 {
+	font-size: 2.5vw;
+	font-weight: bold;
+	letter-spacing: -1px;
+}
+
+.font40 {
+	font-size: 2.08vw;
+	font-weight: bold;
+	letter-spacing: -1.5px;
+}
+
+.font20 {
+	font-size: 1.04vw;
+	line-height: 1.6vw;
+	word-spacing: -0.5px;
+	letter-spacing: -0.5px;
+}
+
+/*========================== Responsive ===========================*/
+
+@media (max-width: 1440px) {
+	/*- fonts -*/
+	.font20 {
+		font-size: 1.2vw;
+		line-height: 1.8vw;
+		word-spacing: 0px;
+		letter-spacing: 0px;
+	}
+
+	/*- nav -*/
+	.navWrapper ul li a {
+		margin-left: 2.5vw;
+		font-size: 1.2vw;
+	}
+
+	/*- hero -*/
+	.hero .hero-header > div p {
+		width: 80%;
+	}
+
+	#shape1 {
+		width: 15vw;
+	}
+
+	#shape5 {
+		width: 15vw;
+	}
+}
+
+@media (max-width: 868px) {
+	.container {
+		padding-left: 5vw;
+		padding-right: 5vw;
+	}
+
+	.Vcontainer {
+		padding-top: 9vw;
+		padding-bottom: 15vw;
+	}
+
+	.btn {
+		font-size: 20px;
+		border-radius: 50px;
+		padding: 12px 30px;
+	}
+
+	/*- margnis -*/
+	.mT120 {
+		margin-top: 10vw;
+	}
+
+	.mT100 {
+		margin-top: 9.2vw;
+	}
+
+	.mT70 {
+		margin-top: 6vw;
+	}
+
+	.mT50 {
+		margin-top: 4.6vw;
+	}
+
+	.mT30 {
+		margin-top: 2.56vw;
+	}
+
+	.mT20 {
+		margin-top: 2vw;
+	}
+
+	.mT10 {
+		margin-top: 1vw;
+	}
+
+	/*- fonts -*/
+	.font96 {
+		font-size: 7vw;
+		line-height: 8vw;
+	}
+
+	.font72 {
+		font-size: 5.5vw;
+		letter-spacing: -2.5px;
+	}
+
+	.font64 {
+		font-size: 4.8vw;
+	}
+
+	.font48 {
+		font-size: 4.2vw;
+	}
+
+	.font40 {
+		font-size: 4vw;
+		letter-spacing: -1.5px;
+	}
+
+	.font20 {
+		font-size: 2.2vw;
+		line-height: 3vw;
+	}
+
+	/*- nav -*/
+	.navbar {
+		padding: 0;
+		top: 0;
+	}
+
+	.hamburger {
+		display: block;
+	}
+
+	.navWrapper ul {
+		display: none;
+	}
+
+	.navWrapper {
+		padding: 2.6vw 5vw;
+		border: none;
+		border-bottom: 2px solid var(--black);
+		border-radius: 0;
+	}
+
+	/*- hero -*/
+	.hero {
+		padding: 22vw 0 15vw 0;
+	}
+
+	.hero .hero-header > div {
+		width: 70%;
+	}
+
+	.hero .icon-section {
+		border-radius: 220px;
+		padding: 10vw 5vw;
+	}
+
+	.hero .icon-section > div {
+		gap: 2.6vw;
+		margin-top: 5.2vw;
+	}
+
+	.hero .icon-section .icon-item img {
+		width: 10vw;
+		height: 10vw;
+		margin-bottom: 2vw;
+	}
+
+	#shape1 {
+		width: 20vw;
+		top: 15vw;
+	}
+
+	#shape5 {
+		top: 20vw;
+		width: 20vw;
+	}
+
+	/*- FAQ -*/
+	.faq .faq_inner {
+		padding: 5.2vw 3vw;
+		border-radius: 40px;
+	}
+
+	.faq .faq_inner > div .question {
+		margin-top: 2.6vw;
+		border-radius: 25px;
+		padding: 3vw 2vw;
+	}
+
+	#faqShape {
+		display: none;
+	}
+
+	/*- get in touch -*/
+	.getintouch > div {
+		width: 80%;
+	}
+
+	/*- footer -*/
+	.footer {
+		padding-top: 8vw;
+		padding-bottom: 8vw;
+	}
+}
+
+@media (max-width: 670px) {
+	.wavy-border {
+		margin-top: -20px;
+	}
+
+	.Vcontainer {
+		padding-top: 12vw;
+		padding-bottom: 18vw;
+	}
+
+	.btn {
+		font-size: 16px;
+		border: 1.5px solid var(--black);
+		padding: 10px 25px;
+	}
+
+	/*- margnis -*/
+	.mT120 {
+		margin-top: 18vw;
+	}
+
+	.mT100 {
+		margin-top: 15vw;
+	}
+
+	.mT70 {
+		margin-top: 12vw;
+	}
+
+	.mT50 {
+		margin-top: 10vw;
+	}
+
+	.mT30 {
+		margin-top: 7vw;
+	}
+
+	.mT20 {
+		margin-top: 5vw;
+	}
+
+	.mT10 {
+		margin-top: 3vw;
+	}
+
+	/*- fonts -*/
+	.font96 {
+		font-size: 9vw;
+		line-height: 11vw;
+		letter-spacing: -2px;
+	}
+
+	.font72 {
+		font-size: 7vw;
+		letter-spacing: -1px;
+	}
+
+	.font64 {
+		font-size: 6vw;
+		letter-spacing: 0px;
+	}
+
+	.font48 {
+		font-size: 5.2vw;
+	}
+
+	.font40 {
+		font-size: 5vw;
+		letter-spacing: -0.5px;
+	}
+
+	.font20 {
+		font-size: 3.2vw;
+		line-height: 4vw;
+		word-spacing: -1px;
+	}
+
+	/*- nav -*/
+	.navWrapper .logo a {
+		font-size: 24px;
+		letter-spacing: -0.5px;
+	}
+
+	.overlay {
+		height: 65%;
+	}
+
+	.overlay .overlay-content ul li a {
+		font-size: 5vw;
+	}
+
+	.RNB {
+		margin-bottom: 10vw;
+	}
+
+	/*- hero -*/
+	.hero {
+		padding: 50vw 0 18vw 0;
+	}
+
+	.hero .hero-header > div {
+		width: 90%;
+	}
+
+	.hero .hero-header > div p {
+		width: 100%;
+	}
+
+	.hero .icon-section {
+		margin-top: 40vw;
+		border-radius: 40px;
+		padding: 15vw 5vw;
+		border: 1.5px solid var(--black);
+	}
+
+	.hero .icon-section > div {
+		flex-direction: column;
+		gap: 15vw;
+		margin-top: 20vw;
+	}
+
+	.hero .icon-section .icon-item img {
+		width: 30vw;
+		height: 30vw;
+		margin-bottom: 7vw;
+	}
+
+	#shape1 {
+		width: 30vw;
+		top: 15vw;
+	}
+
+	#shape5 {
+		top: 120vw;
+		width: 30vw;
+	}
+
+	/*- FAQ -*/
+	.faq .faq_inner {
+		padding: 8vw 5vw;
+		border-radius: 25px;
+	}
+
+	.faq .faq_inner > div .question {
+		margin-top: 5.2vw;
+		border-radius: 15px;
+		padding: 5vw 3vw;
+	}
+
+	.getintouch > div {
+		width: 100%;
+	}
+
+	.footer {
+		padding-top: 10vw;
+		padding-bottom: 10vw;
+	}
+}

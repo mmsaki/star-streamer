@@ -26,8 +26,10 @@ async function importData(filename) {
 
 async function start() {
 	await core.ready();
-	if (core.writable)
+	if (core.writable) {
 		console.log('Share  this core key:', core.key.toString('hex'));
+	}
+
 	core.on('download', (index) => console.log('Downloaded block #' + index));
 	const swarm = new Hyperswarm();
 	swarm.on('connection', (socket) => core.replicate(socket));
@@ -41,6 +43,8 @@ async function start() {
 		swarm.flush().then(done, done);
 		await core.update();
 	}
+
+	core.on('peer-remove', () => console.log('One has disconnected'));
 
 	http
 		.createServer(function (req, res) {
@@ -70,8 +74,9 @@ async function start() {
 			}
 
 			res.setHeader('Content-Length', byteLength);
+
 			if (req.method === 'HEAD') {
-				red.end();
+				req.end();
 				return;
 			}
 
