@@ -1,0 +1,3 @@
+[submodule "universal-connectivity"]
+	path = universal-connectivity
+	url = https://github.com/mmsaki/universal-connectivity.git
