@@ -1,63 +1,71 @@
 /* eslint-disable no-console */
 
 import { createLibp2p } from 'libp2p';
+import { identifyService } from 'libp2p/identify';
 import { tcp } from '@libp2p/tcp';
-import { noise } from '@chainsafe/libp2p-noise';
 import { mplex } from '@libp2p/mplex';
 import { yamux } from '@chainsafe/libp2p-yamux';
-import { toString as uint8ArrayToString } from 'uint8arrays/to-string';
-import { fromString as uint8ArrayFromString } from 'uint8arrays/from-string';
-import { pipe } from 'it-pipe';
-import toBuffer from 'it-to-buffer';
+import { noise } from '@chainsafe/libp2p-noise';
+import { CID } from 'multiformats/cid';
+import { kadDHT } from '@libp2p/kad-dht';
+import all from 'it-all';
+import delay from 'delay';
 
 const createNode = async () => {
 	const node = await createLibp2p({
 		addresses: {
-			// To signal the addresses we want to be available, we use
-			// the multiaddr format, a self describable address
 			listen: ['/ip4/0.0.0.0/tcp/0'],
 		},
 		transports: [tcp()],
-		connectionEncryption: [noise()],
 		streamMuxers: [yamux(), mplex()],
+		connectionEncryption: [noise()],
+		services: {
+			dht: kadDHT({
+				// this is necessary because this node is not connected to the public network
+				// it can be removed if, for example bootstrappers are configured
+				allowQueryWithZeroPeers: true,
+			}),
+			identify: identifyService(),
+		},
 	});
 
 	return node;
 };
 
-function printAddrs(node, number) {
-	console.log('node %s is listening on:', number);
-	node.getMultiaddrs().forEach((ma) => console.log(ma.toString()));
-}
-
 (async () => {
-	const [node1, node2] = await Promise.all([createNode(), createNode()]);
-
-	printAddrs(node1, '1');
-	printAddrs(node2, '2');
-
-	node2.handle('/print', async ({ stream }) => {
-		const result = await pipe(
-			stream,
-			async function* (source) {
-				for await (const list of source) {
-					yield list.subarray();
-				}
-			},
-			toBuffer
-		);
-		console.log(uint8ArrayToString(result));
-	});
+	const [node1, node2, node3] = await Promise.all([
+		createNode(),
+		createNode(),
+		createNode(),
+	]);
 
 	await node1.peerStore.patch(node2.peerId, {
 		multiaddrs: node2.getMultiaddrs(),
 	});
-	const stream = await node1.dialProtocol(node2.peerId, '/print');
+	await node2.peerStore.patch(node3.peerId, {
+		multiaddrs: node3.getMultiaddrs(),
+	});
 
-	await pipe(
-		['Hello', ' ', 'p2p', ' ', 'world', '!'].map((str) =>
-			uint8ArrayFromString(str)
-		),
-		stream
+	await Promise.all([node1.dial(node2.peerId), node2.dial(node3.peerId)]);
+
+	// Wait for onConnect handlers in the DHT
+	await delay(1000);
+
+	const cid = CID.parse('QmTp9VkYvnHyrqKQuFPiuZkiX9gPcqj6x5LJ1rmWuSySnL');
+	await node1.contentRouting.provide(cid);
+
+	console.log(
+		'Node %s is providing %s',
+		node1.peerId.toString(),
+		cid.toString()
 	);
+
+	// wait for propagation
+	await delay(300);
+
+	const providers = await all(
+		node3.contentRouting.findProviders(cid, { timeout: 3000 })
+	);
+
+	console.log('Found provider:', providers[0].id.toString());
 })();

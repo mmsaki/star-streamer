@@ -216,7 +216,7 @@ async fn main() -> Result<()> {
                 }
 
                 let message = format!(
-                    "Hello world! Sent from the rust-peer at: {:4}s",
+                    "Hi 👋, streamer! Sent from the rust-peer at: {:4}s",
                     now.elapsed().as_secs_f64()
                 );
 

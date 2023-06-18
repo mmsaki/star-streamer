@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="main.css" />
+		<title>ipfs video streaming</title>
+	</head>
+	<body>
+		<div id="main">
+			<!-- Navbar -->
+			<div class="navbar">
+				<div class="navWrapper">
+					<div class="logo">
+						<a href="#hero">p2p streamer.</a>
+					</div>
+					<div class="hamburger">
+						<span style="font-size: 30px; cursor: pointer">&#9776;</span>
+					</div>
+					<ul>
+						<a href="#faq" class="btn mL60">FAQ's</a>
+					</ul>
+				</div>
+			</div>
+			<!-- Hero -->
+			<section class="hero" id="hero">
+				<!-- left Shapes-->
+				<div id="HLS">
+					<img
+						src="images/hero-section/shapes1.png"
+						alt=""
+						class="shape"
+						id="shape1"
+					/>
+				</div>
+				<!-- right Shapes-->
+				<div id="HRS">
+					<img
+						src="images/hero-section/shapes5.png"
+						alt=""
+						class="shape"
+						id="shape5"
+					/>
+				</div>
+				<!-- video section -->
+				<div class="hero-header">
+					<div>
+						<h1 class="font96" style="color: #29293e">Star Streamer</h1>
+						<div class="video">
+							<video id="videoplayer" width="650" controls autoplay>
+								<source id="source" src="/video" type="video/mp4" />
+							</video>
+						</div>
+						<pre class="peer-logs" id="output">
+							<h1 id="status">Starting libp2p...</h1>
+						</pre>
+						<pre class="peer-logs mT10" id="multiaddrs"></pre>
+						<a id="announce" class="btn mT50">Announce to peers</a>
+					</div>
+				</div>
+				<div class="container">
+					<div class="icon-section mT100">
+						<h2 class="font40">How it works</h2>
+						<div>
+							<div class="icon-item">
+								<img src="images/icon1.png" alt="" srcset="" />
+								<p class="font20 bold">Privacy</p>
+							</div>
+							<div class="icon-item">
+								<img src="images/icon2.png" alt="" srcset="" />
+								<p class="font20 bold">
+									browser to browser <br />
+									communication
+								</p>
+							</div>
+							<div class="icon-item">
+								<img src="images/icon3.png" alt="" srcset="" />
+								<p class="font20 bold">
+									Direct <br />
+									connections
+								</p>
+							</div>
+							<div class="icon-item">
+								<img src="images/icon4.png" alt="" srcset="" />
+								<p class="font20 bold">
+									Decentralized <br />
+									Network
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- X - X - X -->
+
+			<!-- wavy-border -->
+			<div class="wavy-border">
+				<img src="images/waveborderyellow.png" alt="" />
+			</div>
+			<!-- X - X - X -->
+
+			<!-- FAQ -->
+			<section class="faq container Vcontainer" id="faq">
+				<div class="faq_inner">
+					<h1 class="font72">Frequently asked questions</h1>
+					<div class="mT50">
+						<div class="question">
+							<h2 class="font40">What is webRTC?</h2>
+							<p class="font20 mT20">
+								WebRTC stands for Web Real-Time Communication. WebRTC is an
+								enables real-time peer-to-peer communication, including audio,
+								video, and data sharing, directly within web browsers or
+								devices. It allows developers to build seamless real-time
+								communication applications using web technologies. <br />
+								<br />In this project, we use an integration of WebRTC
+								technology build into the libp2p networking stack. Libp2p is a
+								modular, peer-to-peer networking framework developed by the
+								Protocol Labs team. With libp2p WebRTC, developers can establish
+								peer-to-peer connections, exchange media streams, and share data
+								directly between browsers or devices.
+							</p>
+						</div>
+						<div class="question">
+							<h2 class="font40">How do I find out more about this project?</h2>
+							<p class="font20 mT20">
+								Please feel free to check out the code on
+								<a href="https://github.com/mmsaki/star-streamer">github.</a>
+							</p>
+						</div>
+						<div class="question">
+							<h2 class="font40">
+								What are peers and how do they find each other?
+							</h2>
+							<p class="font20 mT20">
+								Peers, in the context of peer-to-peer (P2P) networks, are
+								devices or nodes that participate in the network and share
+								resources, data, or services directly with other peers. Each
+								peer has the ability to both request and provide resources,
+								creating a decentralized and distributed network.
+								<br />
+								<br />
+								In this project, peers can find each other through "bootstrap"
+								nodes that serve as initial entry points into the network. These
+								nodes can provide information about other peers or the network
+								topology, enabling new peers to join and connect with existing
+								ones. We is using a
+								<a
+									href="https://github.com/libp2p/universal-connectivity/tree/main/rust-peer"
+									>rust-peer</a
+								>
+								for our bootstrap node which we slighlty modified from libp2p's
+								<a href="https://github.com/libp2p/universal-connectivity"
+									>universal-connectivity</a
+								>
+								example.
+							</p>
+						</div>
+						<div class="question">
+							<h2 class="font40">
+								What are the advantages of using peer-to-peer protocols for
+								video streaming?
+							</h2>
+							<ul class="font20 mT20">
+								<li>
+									1. <strong>Decentralization</strong>: Peer-to-peer protocols
+									eliminate the need for centralized servers to distribute video
+									content.
+								</li>
+								<li>
+									2. <strong>Scalability</strong>: With peer-to-peer protocols,
+									the more peers that join a streaming session, the greater the
+									available bandwidth for content distribution.
+								</li>
+								<li>
+									3. <strong>Reduced Bandwidth Costs</strong>: Since peers share
+									the responsibility of distributing the video content, it can
+									help reduce the bandwidth costs associated with traditional
+									client-server architectures.
+								</li>
+								<li>
+									4. <strong>Improved Streaming Quality</strong>: Peer-to-peer
+									protocols can enhance streaming quality by leveraging the
+									collective resources of participating peers.
+								</li>
+								<li>Share content anonymously</li>
+								<li>
+									5. <strong>Redundancy and Reliability</strong>: Peer-to-peer
+									networks often provide built-in redundancy. If one peer goes
+									offline or experiences issues, other peers in the network can
+									fill in the gaps, ensuring continuous streaming availability.
+								</li>
+								<li>
+									6. <strong>Privacy and Security</strong>: Peer-to-peer
+									protocols can offer enhanced privacy as the content is shared
+									directly between peers without relying on a middle man the
+									connection can be configured with encryption to secure
+									connections. Our project uses
+									<a href="https://github.com/ChainSafe/js-libp2p-noise"
+										>chainsafe/libp2p-noise</a
+									>
+									for connection encryption.
+								</li>
+							</ul>
+						</div>
+						<div class="question">
+							<h2 class="font40">Which tools do you use?</h2>
+							<p class="font20 mT20">
+								Figma for designing stuff, nodejs, js-libp2p, ipfs-helia, and
+								HTML and CSS for website stuff.
+							</p>
+						</div>
+						<div class="question">
+							<h2 class="font40">
+								Is there a limit to the number of peers that can join a
+								streaming session?
+							</h2>
+							<p class="font20 mT20">
+								Any peer can connect but it is possible that other peer
+								connections may fail to connect.
+							</p>
+						</div>
+						<div class="question">
+							<h2 class="font40">
+								Are there any plans for future enhancements or new features?
+							</h2>
+							<p class="font20 mT20">
+								It depends upon the feature. But i’ll try my best to complete
+								new features earlier as soon as possible.
+							</p>
+						</div>
+					</div>
+				</div>
+				<!-- FAQ bg shapes -->
+				<div id="faqShape">
+					<img
+						class="shape"
+						id="shape14"
+						src="images/faq/shapes14.png"
+						alt=""
+						srcset=""
+					/>
+					<img
+						class="shape"
+						id="shape15"
+						src="images/faq/shapes15.png"
+						alt=""
+						srcset=""
+					/>
+					<img
+						class="shape"
+						id="shape16"
+						src="images/faq/shapes16.png"
+						alt=""
+						srcset=""
+					/>
+					<img
+						class="shape"
+						id="shape17"
+						src="images/faq/shapes17.png"
+						alt=""
+						srcset=""
+					/>
+					<img
+						class="shape"
+						id="shape18"
+						src="images/faq/shapes18.png"
+						alt=""
+						srcset=""
+					/>
+					<img
+						class="shape"
+						id="shape19"
+						src="images/faq/shapes19.png"
+						alt=""
+						srcset=""
+					/>
+					<img
+						class="shape"
+						id="shape20"
+						src="images/faq/shapes20.png"
+						alt=""
+						srcset=""
+					/>
+				</div>
+				<div id="faqShape">
+					<img
+						class="shape"
+						id="shape21"
+						src="images/faq/shapes21.png"
+						alt=""
+						srcset=""
+					/>
+					<img
+						class="shape"
+						id="shape22"
+						src="images/faq/shapes22.png"
+						alt=""
+						srcset=""
+					/>
+					<img
+						class="shape"
+						id="shape23"
+						src="images/faq/shapes23.png"
+						alt=""
+						srcset=""
+					/>
+				</div>
+			</section>
+			<!-- X - X - X -->
+
+			<!-- wavy-border -->
+			<div class="wavy-border">
+				<img src="images/waveborderwhite.png" alt="" />
+			</div>
+			<!-- X - X - X -->
+
+			<!-- Get in Touch -->
+			<section class="getintouch container Vcontainer" id="hire">
+				<div>
+					<h1 class="font72">Let’s build something awesome together!</h1>
+					<p class="font20 mT30">
+						Still need convincing? We are actively developing p2p streamer and
+						making significant progress towards our first use. We invite you to
+						join us on this exciting journey and witness the future of video
+						sharing. As we roll out this demo release, we welcome your valuable
+						feedback and are here to answer any questions you may have.
+					</p>
+					<div class="mT70">
+						<a href="#a" class="btn">Get in Touch</a>
+					</div>
+				</div>
+				<iframe
+					class="mT50"
+					src="https://docs.google.com/forms/d/e/1FAIpQLSfCEWSsi_A8s7zRKSzrcfG29Hd0IksIqU9_N86fB9tajCzhYA/viewform?embedded=true"
+					width="640"
+					height="500"
+					frameborder="0"
+					marginheight="0"
+					marginwidth="0"
+					>Loading…</iframe
+				>
+			</section>
+			<!-- X - X - X -->
+
+			<!-- wavy-border -->
+			<div class="wavy-border">
+				<img src="images/waveborderblack.png" alt="" />
+			</div>
+			<!-- X - X - X -->
+
+			<!-- Footer -->
+			<section class="footer container">
+				<div class="flogo">
+					<h1 class="font48">p2p streamer.</h1>
+					<p class="font20 mT20">© 2023 p2p streamer. All Rights Reserved</p>
+				</div>
+				<div class="flink">
+					<a href="#a" class="font20">Privacy Policy</a>
+					<a href="#a" class="font20 mT20">Terms & Conditions</a>
+				</div>
+			</section>
+			<!-- X - X - X -->
+		</div>
+
+		<script type="module" src="./index.js"></script>
+		<script src="https://unpkg.com/@helia/unixfs/dist/index.min.js"></script>
+		<!-- makes `Libp2pKadDht` available in the global namespace. -->
+		<script src="https://unpkg.com/@libp2p/kad-dht/dist/index.min.js"></script>
+		<!-- heli-car hooks -->
+		<script src="https://unpkg.com/@helia/car/dist/index.min.js"></script>
+	</body>
+</html>
