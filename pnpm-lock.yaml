@@ -1,6 +1,9 @@
 lockfileVersion: '6.0'
 
 dependencies:
+  '@chainsafe/libp2p-gossipsub':
+    specifier: ^8.0.1
+    version: 8.0.1
   '@chainsafe/libp2p-noise':
     specifier: ^12.0.1
     version: 12.0.1
@@ -19,6 +22,9 @@ dependencies:
   '@libp2p/bootstrap':
     specifier: ^8.0.0
     version: 8.0.0
+  '@libp2p/interface-pubsub':
+    specifier: ^4.0.1
+    version: 4.0.1
   '@libp2p/kad-dht':
     specifier: ^9.3.6
     version: 9.3.6
@@ -40,9 +46,15 @@ dependencies:
   b4a:
     specifier: ^1.6.4
     version: 1.6.4
+  delay:
+    specifier: ^6.0.0
+    version: 6.0.0
   express:
     specifier: ^4.18.2
     version: 4.18.2
+  filters:
+    specifier: link:@libp2p/websockets/filters
+    version: link:@libp2p/websockets/filters
   graceful-goodbye:
     specifier: ^1.3.0
     version: 1.3.0
@@ -58,6 +70,12 @@ dependencies:
   hyperswarm:
     specifier: ^4.5.0
     version: 4.5.0
+  it-pipe:
+    specifier: ^3.0.1
+    version: 3.0.1
+  it-to-buffer:
+    specifier: ^4.0.2
+    version: 4.0.2
   libp2p:
     specifier: ^0.45.5
     version: 0.45.5
@@ -73,6 +91,9 @@ dependencies:
   through2:
     specifier: ^4.0.2
     version: 4.0.2
+  uint8arrays:
+    specifier: ^4.0.4
+    version: 4.0.4
 
 devDependencies:
   '@babel/core':
@@ -84,6 +105,9 @@ devDependencies:
   babel-jest:
     specifier: ^29.5.0
     version: 29.5.0(@babel/core@7.22.5)
+  https:
+    specifier: ^1.0.0
+    version: 1.0.0
   vite:
     specifier: ^4.3.9
     version: 4.3.9
@@ -1355,8 +1379,8 @@ packages:
     resolution: {integrity: sha512-nqSJ8u2a1Rv9FYbyI8qpDhTYujaKEyLknNrTejLYoSWmdeg+2WB7R6BZqPZYfrJzDxVi3rl6ZQuoaEvpKRZWgQ==}
     dev: false
 
-  /@chainsafe/libp2p-gossipsub@8.0.0:
-    resolution: {integrity: sha512-0cnjE2ND0T6VeqIlzBghmR8aalssQUNF3RtGzrI31VWNF1D8RSayyg32A8PHRUiNKxpl+CMm9xwk9NkBRf3J4g==}
+  /@chainsafe/libp2p-gossipsub@8.0.1:
+    resolution: {integrity: sha512-vzRN7F1zLd/DKfK9VLQ7rrc/lYQFvE/RGnXjr+EanD2RoX+BjSdqZkvzcrJcaDzkCMJRCvpsFzgz2iLbV7SgYg==}
     engines: {npm: '>=8.7.0'}
     dependencies:
       '@libp2p/crypto': 1.0.17
@@ -3299,6 +3323,11 @@ packages:
       execa: 5.1.1
     dev: false
 
+  /delay@6.0.0:
+    resolution: {integrity: sha512-2NJozoOHQ4NuZuVIr5CWd0iiLVIRSDepakaovIN+9eIDHEhdCAEvSy2cuf1DCrPPQLvHmbqTHODlhHg8UCy4zw==}
+    engines: {node: '>=16'}
+    dev: false
+
   /denque@1.5.1:
     resolution: {integrity: sha512-XwE+iZ4D6ZUB7mfYRMb5wByE8L74HCn30FBN7sWnXksWc1LO1bPDl67pBR9o/kC4z/xSNAwkMYcGgqDV3BE3Hw==}
     engines: {node: '>=0.10'}
@@ -3711,7 +3740,7 @@ packages:
     resolution: {integrity: sha512-rTdeCimnmWP1HL0xz9JuktnfHUnnlLpA84szcpTczdln3qqikjiLTAi8efpFB0x7903ar6O1kOEcJY6jfPXCKQ==}
     engines: {node: '>=16.0.0', npm: '>=7.0.0'}
     dependencies:
-      '@chainsafe/libp2p-gossipsub': 8.0.0
+      '@chainsafe/libp2p-gossipsub': 8.0.1
       '@chainsafe/libp2p-noise': 12.0.1
       '@chainsafe/libp2p-yamux': 4.0.2
       '@helia/interface': 1.2.1
@@ -3764,6 +3793,10 @@ packages:
       statuses: 2.0.1
       toidentifier: 1.0.1
     dev: false
+
+  /https@1.0.0:
+    resolution: {integrity: sha512-4EC57ddXrkaF0x83Oj8sM6SLQHAWXw90Skqu2M4AEWENZ3F02dFJE/GARA8igO79tcgYqGrD7ae4f5L3um2lgg==}
+    dev: true
 
   /human-signals@2.1.0:
     resolution: {integrity: sha512-B4FFZ6q/T2jhhksgkbEW3HBvWIfDW85snkQgawt07S7J5QXTk6BkNV+0yAeZrM5QpMAdYlocGoljn0sJ/WQkFw==}
