@@ -7,25 +7,76 @@
 		<title>p2p streaming</title>
 	</head>
 	<body>
+		<div>
+			video:
+			<select id="camera"></select>
+		</div>
+		<div>
+			audio:
+			<select id="audio"></select>
+		</div>
 		<video autoplay></video>
 		<script>
-			navigator.getUserMedia =
-				navigator.getUserMedia ||
-				navigator.webkitGetUserMedia ||
-				navigator.mozGetUserMedia;
-
-			var constraints = {
-				audio: false,
-				video: {
-					maxWidth: 640,
-					minWidth: 640,
-					maxHeight: 480,
-					minHeight: 360,
-				},
-			};
 			var videoArea = document.querySelector('video');
-			navigator.getUserMedia(constraints, onSuccess, onError);
+			var videoSelect = document.querySelector('#camera');
+			var audioSelect = document.querySelector('#audio');
 
+			// Get camera sources and audio sources
+			// source: https://stackoverflow.com/questions/20110611/mediastreamtrack-getsources-not-supported-in-firefox-how-to-do-the-equivalent
+			navigator.mediaDevices
+				.enumerateDevices()
+				.then(function (devices) {
+					devices.forEach(function (device) {
+						var option = document.createElement('option');
+						option.value = device.deviceId;
+						if (device.kind === 'videoinput') {
+							option.text = device.label || 'camera' + (videoSelect.length + 1);
+							videoSelect.appendChild(option);
+						} else if (device.kind == 'audioinput') {
+							option.text = device.label || 'mic' + (audioSelect.length + 1);
+							audioSelect.appendChild(option);
+						}
+					});
+				})
+				.catch(function (err) {
+					console.log(err.name + ': ' + err.message);
+				});
+
+			startStream();
+
+			// start stream
+			function startStream() {
+				// because different browsers have different apis for getting audio and video
+				navigator.getUserMedia =
+					navigator.getUserMedia ||
+					navigator.webkitGetUserMedia ||
+					navigator.mozGetUserMedia;
+
+				// pass the camera and audio source to the browser
+				var videoSource = videoSelect.value;
+				var audioSource = audioSelect.value;
+
+				// constraints settings for audio and video
+				var constraints = {
+					audio: false,
+					video: {
+						maxWidth: 640,
+						minWidth: 640,
+						maxHeight: 480,
+						minHeight: 360,
+					},
+					optional: [
+						{
+							sourceId: videoSource,
+						},
+					],
+				};
+
+				// handles permision to get the video and audio from user with on onSucces function when user gives browser permission, and handles with error on onError function
+				navigator.getUserMedia(constraints, onSuccess, onError);
+			}
+
+			// set the video object to <video> element, adds effect
 			function onSuccess(stream) {
 				console.log('Success! We have a stream');
 				videoArea.srcObject = stream;
@@ -33,6 +84,7 @@
 				videoArea.play();
 			}
 
+			// handles error, e.g when user dinies permission for audio or video
 			function onError(error) {
 				console.log('Error with getUserMedia: ', error);
 			}
