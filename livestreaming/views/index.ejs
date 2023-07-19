@@ -60,10 +60,10 @@
 				var constraints = {
 					audio: false,
 					video: {
-						maxWidth: 640,
-						minWidth: 640,
-						maxHeight: 480,
-						minHeight: 360,
+						width: { min: 640, ideal: 640 },
+						height: { min: 480, ideal: 480 },
+						aspectRatio: { ideal: 1.7777777778 },
+						frameRate: { max: 16 },
 					},
 					optional: [
 						{
