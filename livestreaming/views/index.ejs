@@ -7,19 +7,81 @@
 		<title>p2p streaming</title>
 	</head>
 	<body>
-		<div>
+		<div id="cameraSelector">
 			video:
 			<select id="camera"></select>
 		</div>
-		<div>
+		<div id="audioSelector">
 			audio:
 			<select id="audio"></select>
 		</div>
-		<video autoplay></video>
+		<button id="takeProfilePicture" type="button" autofocus="true">
+			Create Profile Picture
+		</button>
+		<div>
+			<video id="videoTag" autoplay></video>
+		</div>
+		<canvas id="profilePicCanvas" style="display: none"></canvas>
+		<div>
+			<img id="profilePicOutput" />
+		</div>
+
 		<script>
 			var videoArea = document.querySelector('video');
 			var videoSelect = document.querySelector('#camera');
 			var audioSelect = document.querySelector('#audio');
+			// for taking profile picture
+			var profilePicCanvas = document.querySelector('#profilePicCanvas');
+			var profilePictureOutput = document.querySelector('#profilePicOutput');
+			var takePicButton = document.querySelector('#takeProfilePicture');
+			var videoTag = document.querySelector('#videoTag');
+
+			var width = 240;
+			var height = 0;
+			var streaming = false;
+
+			// event listener for taking picture
+			takePicButton.addEventListener(
+				'click',
+				function (event) {
+					takeProfilePic();
+					event.preventDefault();
+				},
+				false
+			);
+
+			// event listener for can play
+			videoTag.addEventListener(
+				'canplay',
+				function (event) {
+					if (!streaming) {
+						height = videoTag.videoHeight / (videoTag.videoWidth / width);
+						if (isNaN(height)) {
+							height = width / (4 / 3);
+						}
+
+						videoTag.setAttribute('width', width);
+						videoTag.setAttribute('height', height);
+						profilePicCanvas.setAttribute('width', width);
+						profilePicCanvas.setAttribute('height', height);
+						streaming = true;
+					}
+				},
+				false
+			);
+
+			// function hamdler for taking pic
+			function takeProfilePic() {
+				var context = profilePicCanvas.getContext('2d');
+				if (width && height) {
+					profilePicCanvas.width = width;
+					profilePicCanvas.height = height;
+					context.drawImage(videoTag, 0, 0, width, height);
+
+					var data = profilePicCanvas.toDataURL('image/png');
+					profilePictureOutput.setAttribute('src', data);
+				}
+			}
 
 			// Get camera sources and audio sources
 			// source: https://stackoverflow.com/questions/20110611/mediastreamtrack-getsources-not-supported-in-firefox-how-to-do-the-equivalent
@@ -60,8 +122,8 @@
 				var constraints = {
 					audio: false,
 					video: {
-						width: { min: 640, ideal: 640 },
-						height: { min: 480, ideal: 480 },
+						width: { min: 240, ideal: 240 },
+						height: { min: 240, ideal: 240 },
 						aspectRatio: { ideal: 1.7777777778 },
 						frameRate: { max: 16 },
 					},
