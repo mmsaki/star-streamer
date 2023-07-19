@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>WebRTC streaming</title>
+	</head>
+	<body>
+		<video autoplay></video>
+		<script>
+			navigator.getUserMedia =
+				navigator.getUserMedia ||
+				navigator.webkitGetUserMedia ||
+				navigator.mozGetUserMedia;
+
+			var constraints = { audio: true, video: true };
+			var videoArea = document.querySelector('video');
+			navigator.getUserMedia(constraints, onSuccess, onError);
+
+			function onSuccess(stream) {
+				console.log('Success! We have a stream');
+				videoArea.srcObject = stream;
+				videoArea.play();
+			}
+
+			function onError(error) {
+				console.log('Error with getUserMedia: ', error);
+			}
+		</script>
+	</body>
+</html>
