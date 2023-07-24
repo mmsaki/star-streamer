@@ -11,3 +11,10 @@
    ```sh
    node server.js
    ```
+
+# Settign up socket.io
+
+1. Install `express.io`
+   ```sh
+   npm i express.io
+   ```
