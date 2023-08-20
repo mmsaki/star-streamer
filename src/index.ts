@@ -26,6 +26,7 @@ import rangeParser from 'range-parser';
 import { unixfs } from '@helia/unixfs';
 import { createHelia } from 'helia';
 import through from 'through2';
+import { pipe } from 'it-pipe';
 
 document.addEventListener('DOMContentLoaded', async () => {
 	const createNode = async () => {
@@ -70,6 +71,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 					allowPublishToZeroPeers: true,
 					ignoreDuplicatePublishError: true,
 				}),
+
 				identify: identifyService(),
 				dht: kadDHT({
 					protocolPrefix: '/star-streamer',
@@ -98,6 +100,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 	const output = document.getElementById('output');
 	const multiaddrs = document.getElementById('multiaddrs');
 
+	if (!output || !multiaddrs) throw Error('Element not found');
 	output.textContent = '';
 	multiaddrs.textContent = '';
 
@@ -115,6 +118,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 		if (txt.toLowerCase().includes('found peer')) {
 			newLine.style.color = 'green';
 		}
+		if (!output) throw Error('Element not found');
 		output.append(newLine);
 	}
 
@@ -125,7 +129,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 		// dial them when we discover them
 		libp2p.dial(peerInfo.id).catch((err) => {
-			log(`[Could not dial]: ${peerInfo.id.toString()}`, err);
+			log(`[Could not dial]: ${peerInfo.id.toString()}`);
 		});
 	});
 
@@ -147,6 +151,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 		log(`[message]: ${uint8ArrayToString(message.data)}`);
 	});
 
+	if (!status) throw Error('Element not found');
 	status.innerText = 'libp2p started!';
 	log(`[Peer ID]: ${libp2p.peerId.toString()}`);
 
@@ -293,3 +298,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 // 	const encodedSeqNum = enc.encode(signedMessage.sequenceNumber.toString());
 // 	return await sha256.encode(encodedSeqNum);
 // }
+
+declare global {
+	interface Window {
+		libp2p: any;
+	}
+}
