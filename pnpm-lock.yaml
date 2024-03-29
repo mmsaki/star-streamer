@@ -1498,7 +1498,7 @@ packages:
       it-pipe: 3.0.1
       it-pushable: 3.1.3
       multiformats: 11.0.2
-      protobufjs: 6.11.3
+      protobufjs: 6.11.4
       uint8arraylist: 2.4.3
       uint8arrays: 4.0.4
     transitivePeerDependencies:
@@ -5063,8 +5063,8 @@ packages:
     engines: {node: '>=16.0.0', npm: '>=7.0.0'}
     dev: false
 
-  /protobufjs@6.11.3:
-    resolution: {integrity: sha512-xL96WDdCZYdU7Slin569tFX712BxsxslWwAfAhCYjQKGTq7dAU91Lomy6nLLhh/dyGhk/YH4TwTSRxTzhuHyZg==}
+  /protobufjs@6.11.4:
+    resolution: {integrity: sha512-5kQWPaJHi1WoCpjTGszzQ32PG2F4+wRY6BmAT4Vfw56Q2FZ4YZzK20xUYQH4YkfehY1e6QSICrJquM6xXZNcrw==}
     hasBin: true
     requiresBuild: true
     dependencies:
