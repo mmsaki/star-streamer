@@ -3492,9 +3492,9 @@ packages:
     engines: {node: '>=16.0.0', npm: '>=7.0.0'}
     dependencies:
       debug: 4.3.4
-      native-fetch: 4.0.2(undici@5.28.3)
+      native-fetch: 4.0.2(undici@5.28.4)
       receptacle: 1.3.2
-      undici: 5.28.3
+      undici: 5.28.4
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -4805,12 +4805,12 @@ packages:
       node-fetch: 3.3.1
     dev: false
 
-  /native-fetch@4.0.2(undici@5.28.3):
+  /native-fetch@4.0.2(undici@5.28.4):
     resolution: {integrity: sha512-4QcVlKFtv2EYVS5MBgsGX5+NWKtbDbIECdUXDBGDMAZXq3Jkv9zf+y8iS7Ub8fEdga3GpYeazp9gauNqXHJOCg==}
     peerDependencies:
       undici: '*'
     dependencies:
-      undici: 5.28.3
+      undici: 5.28.4
     dev: false
 
   /negotiator@0.6.3:
@@ -5687,8 +5687,8 @@ packages:
       multiformats: 11.0.2
     dev: false
 
-  /undici@5.28.3:
-    resolution: {integrity: sha512-3ItfzbrhDlINjaP0duwnNsKpDQk3acHI3gVJ1z4fmwMK31k5G9OVIAMLSIaP6w4FaGkaAkN6zaQO9LUvZ1t7VA==}
+  /undici@5.28.4:
+    resolution: {integrity: sha512-72RFADWFqKmUb2hmmvNODKL3p9hcB6Gt2DOQMis1SEBaV6a4MH8soBvzg+95CYhCKPFedut2JY9bMfrDl9D23g==}
     engines: {node: '>=14.0'}
     dependencies:
       '@fastify/busboy': 2.1.1
